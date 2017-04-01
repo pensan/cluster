@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node www/js/index.js"
   },
   "author": "pensan",
-  "license": "GNU General Public License v3.0"
+  "license": "GNU General Public License v3.0",
+  "devDependencies": {
+    "@types/node": "^7.0.12"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }

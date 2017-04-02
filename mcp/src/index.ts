@@ -1,13 +1,19 @@
+const BODY_PARSER = require('body-parser');
 const express = require('express');
-const HTTP = require('http');
+const NODE_MANAGER = require('./modules/nodeManager');
 const PORT = 8080; 
 
-var app = express();
 
-app.get('/', function (req, res) {
-  res.send('GET request to /')
+
+let app = express();
+app.use( BODY_PARSER.json() );
+
+app.post('/register', function (req, res) {
+    let node = req.body;
+    let nodeId = NODE_MANAGER.addNode(node);
+    res.send(JSON.stringify({nodeId: nodeId}));
 })
 
 app.listen(PORT, function () {
-  console.log('MCP server listening on port %s!', PORT);
+    console.log('MCP server listening on port %s!', PORT);
 })
